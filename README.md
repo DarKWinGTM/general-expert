@@ -57,6 +57,18 @@ Checked local validation from the repo root:
 - `claude plugins install general-expert@general-expert --scope local` succeeds
 - `claude agents` shows the full `general-expert:*` fleet
 
+### Update an installed plugin
+
+If the plugin is already installed, update it by using the installed identifier shape `plugin@marketplace`:
+
+```bash
+claude plugins update general-expert@darkwingtm --scope local
+```
+
+Why this exact shape matters:
+- `claude plugins update general-expert --scope local` may fail because the installed local plugin is keyed by `general-expert@darkwingtm`
+- the explicit `plugin@marketplace` form matches the installed identifier shown in `claude plugins list`
+
 ### Alternate activation paths
 
 | Path | Current meaning | Status |
