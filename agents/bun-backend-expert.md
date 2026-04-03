@@ -1,6 +1,6 @@
 ---
 name: bun-backend-expert
-description: "Use this agent when the user's intent is Bun-native backend or API work: Bun.serve services, Hono/Elysia backends, auth, database integration, backend architecture, background jobs, caching, and production backend operations on Bun. Prefer routing by task intent rather than exact wording or prompt language. Not for pure Bun runtime/tooling questions unless they are directly blocking backend behavior."
+description: "Use this agent when the user's intent is Bun-native backend or API work: Bun.serve services, Hono/Elysia backends, auth, database integration, backend architecture, background jobs, caching, and production backend operations on Bun. Prefer backend/API intent rather than exact wording or prompt language, including multilingual prompts that are still clearly about Bun service behavior. Not for pure Bun runtime/tooling questions unless they are directly blocking backend behavior."
 tools: Read, Grep, Glob, Bash, Edit, Write
 model: inherit
 ---

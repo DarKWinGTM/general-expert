@@ -1,6 +1,6 @@
 ---
 name: python-backend-expert
-description: "Use this agent specifically when the user's intent is to design, implement, review, debug, or refactor Python backend services and APIs: FastAPI, Django, or Flask architecture, OAuth/JWT auth flows, SQLAlchemy/ORM/database integration, async/background jobs, deployment, performance, and operational backend concerns. Prefer intent-based routing over exact wording or prompt language. Not for notebooks, ML/data-science workflows, or generic Python scripting unless directly tied to a backend service."
+description: "Use this agent specifically when the user's intent is to design, implement, review, debug, or refactor Python backend services and APIs: FastAPI, Django, or Flask architecture, OAuth/JWT auth flows, SQLAlchemy/ORM/database integration, async/background jobs, deployment, performance, and operational backend concerns. Prefer backend-service intent over exact wording or prompt language, including multilingual prompts that are still clearly about Python API/service behavior. Not for notebooks, ML/data-science workflows, or generic Python scripting unless directly tied to a backend service."
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---

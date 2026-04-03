@@ -1,6 +1,6 @@
 ---
 name: bun-expert
-description: "Use this agent specifically when the user's intent is Bun runtime or tooling work: Bun package management, Bun test/build/dev workflows, Bun platform behavior, Bun-vs-Node compatibility, bundling, migration, and performance questions at the runtime/tooling layer. Prefer routing by task intent rather than exact wording or prompt language. Not for Bun-native backend/API architecture unless the issue is clearly runtime or tooling level."
+description: "Use this agent specifically when the user's intent is Bun runtime or tooling work: Bun package management, Bun test/build/dev workflows, Bun platform behavior, Bun-vs-Node compatibility, bundling, migration, and performance questions at the runtime/tooling layer. Prefer routing by runtime/tooling intent rather than exact wording or prompt language, including multilingual prompts that are still clearly about Bun platform behavior. Not for Bun-native backend/API architecture unless the issue is clearly runtime or tooling level."
 tools: Read, Grep, Glob, Bash, Edit, Write
 model: inherit
 ---

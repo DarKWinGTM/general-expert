@@ -1,6 +1,6 @@
 # General Expert Agents Design
 
-> **Current Version:** 0.4.0
+> **Current Version:** 0.5.0
 > **Last Updated:** 2026-04-02
 > **Status:** Active - Standalone Repo Authority
 > **Full history:** [../changelog/changelog.md](../changelog/changelog.md)
@@ -240,6 +240,9 @@ For the current Claude Code environment, the strongest evidence-backed working m
 ### 7.3 Current multilingual-routing rule
 
 For this fleet, multilingual prompt support should be implemented through **intent-oriented routing language in the `description` line** of the source runtime agent files.
+
+This product wave now actively applies that rule across the managed fleet so routing metadata is clearer about task/domain intent even when the user prompt language changes.
+The active policy remains: improve cross-language intent matching without translating the full runtime bodies.
 
 Policy:
 - keep the substantive agent body in English

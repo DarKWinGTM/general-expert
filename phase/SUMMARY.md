@@ -84,7 +84,7 @@ Current governed state
 | P6 | `phase-060-governance-reconciliation.md` | Implemented - Pending Review | Review Pending | Awaiting Review | README/patch/status reconciliation added |
 | P7 | `phase-070-runtime-overlay-governance.md` | Implemented - Pending Review | Review Pending | Awaiting Review | mixed-runtime interpretation documented |
 | P8 | `phase-080-routing-policy-closure.md` | Implemented - Pending Review | Review Pending | Awaiting Review | Bun/browser/React operator policy baseline documented |
-| P9 | `phase-090-multilingual-routing-interpretation.md` | In Progress | Review Pending | Awaiting Review | multilingual routing interpretation wave opened |
+| P9 | `phase-090-multilingual-routing-interpretation.md` | Implemented - Pending Review | Review Pending | Awaiting Review | multilingual routing interpretation wording applied across the fleet |
 | P10 | `phase-100-plugin-compatible-fleet-layout.md` | Implemented - Pending Review | Review Pending | Awaiting Review | plugin-compatible fleet layout plus local marketplace install validated |
 | P11 | `phase-110-separate-repo-cutover.md` | Implemented - Pending Review | Review Pending | Awaiting Review | standalone repo exists; repo-root install validated; authority-retirement step still pending |
 

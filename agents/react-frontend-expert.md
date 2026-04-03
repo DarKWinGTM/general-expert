@@ -1,6 +1,6 @@
 ---
 name: react-frontend-expert
-description: "Use this agent specifically when the user's intent is React frontend work: TSX component architecture, hooks, state management, forms, routing, hydration, rendering bugs, testing, and performance in React apps, especially Next.js App Router and Vite frontends. Prefer routing by task intent rather than exact wording or prompt language. Not for pure HTML/CSS/browser-platform issues unless the root cause is clearly within React integration."
+description: "Use this agent specifically when the user's intent is React frontend work: TSX component architecture, hooks, state management, forms, routing, hydration, rendering bugs, testing, and performance in React apps, especially Next.js App Router and Vite frontends. Prefer routing by React/framework intent rather than exact wording or prompt language, including multilingual prompts that are still clearly about React app behavior. Not for pure HTML/CSS/browser-platform issues unless the root cause is clearly within React integration."
 tools: Read, Grep, Glob, Bash, Edit, Write
 model: inherit
 ---

@@ -1,6 +1,6 @@
 ---
 name: html-css-js-frontend-expert
-description: "Use this agent specifically when the user's intent is web-platform or vanilla frontend work: semantic HTML, CSS layout and cascade issues, responsiveness, accessibility, browser APIs, DOM behavior, cross-browser bugs, and non-framework JavaScript interactions. Prefer routing by task intent rather than exact wording or prompt language. Not for React component/state architecture, hydration, or framework-specific frontend issues."
+description: "Use this agent specifically when the user's intent is web-platform or vanilla frontend work: semantic HTML, CSS layout and cascade issues, responsiveness, accessibility, browser APIs, DOM behavior, cross-browser bugs, and non-framework JavaScript interactions. Prefer routing by browser-platform intent rather than exact wording or prompt language, including multilingual prompts that are still clearly about HTML/CSS/browser behavior. Not for React component/state architecture, hydration, or framework-specific frontend issues."
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---

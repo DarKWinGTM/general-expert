@@ -14,6 +14,7 @@ It is responsible for:
 - sync discipline from source to runtime
 - validation evidence for routing behavior
 - explicit operator policy when routing behavior is environment-dependent
+- multilingual, intent-oriented front-door routing metadata without translating full agent bodies
 
 ---
 

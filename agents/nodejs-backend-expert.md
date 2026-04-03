@@ -1,6 +1,6 @@
 ---
 name: nodejs-backend-expert
-description: "Use this agent specifically when the user's intent is to design, implement, review, debug, or refactor Node.js backend services and APIs: Fastify/Express/NestJS/Koa/Hono-on-Node architecture, REST/GraphQL endpoints, JWT/session auth flows, PostgreSQL/MySQL/MongoDB data layers, Redis caching, background-job and queue systems, middleware, and production backend operations. Prefer intent-based routing over exact wording or prompt language. Not for low-level Node runtime/tooling internals unless they are directly blocking backend behavior."
+description: "Use this agent specifically when the user's intent is to design, implement, review, debug, or refactor Node.js backend services and APIs: Fastify/Express/NestJS/Koa/Hono-on-Node architecture, REST/GraphQL endpoints, JWT/session auth flows, PostgreSQL/MySQL/MongoDB data layers, Redis caching, background-job and queue systems, middleware, and production backend operations. Prefer backend-service intent over exact wording or prompt language, including multilingual prompts that are still clearly about Node backend behavior. Not for low-level Node runtime/tooling internals unless they are directly blocking backend behavior."
 tools: Read, Grep, Glob, Bash, Edit, Write
 model: inherit
 ---

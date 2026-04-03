@@ -1,7 +1,7 @@
 # General Expert Agents Changelog
 
 > **Parent Document:** [../design/design.md](../design/design.md)
-> **Current Version:** 0.7.0
+> **Current Version:** 0.9.0
 > **Last Updated:** 2026-04-02
 
 ---
@@ -10,6 +10,7 @@
 
 | Version | Date | Changes | Summary |
 |---------|------|---------|---------|
+| 0.9.0 | 2026-04-03 | **Multilingual intent-oriented routing metadata applied** | Tightened the 7 agent description lines and fleet-level docs so routing metadata follows task/domain intent more clearly across prompt languages without translating full agent bodies. |
 | 0.8.0 | 2026-04-03 | **Repo-root install docs normalized and validated** | Reworked the public install story around repo-root local marketplace usage, validated `./`-based install from the standalone repo root, and kept the shared `darkwingtm` route scoped as local workspace development context. |
 | 0.7.0 | 2026-04-02 | **Local marketplace install validated** | Added the shared local marketplace scaffold, installed the fleet through local marketplace settings, and verified the plugin-installed fleet appears in normal agent discovery. |
 | 0.6.0 | 2026-04-01 | **Plugin-compatible fleet layout validated** | Refactored the fleet into `agents/`, added `.claude-plugin/plugin.json`, fixed agent frontmatter parsing, and verified local `--plugin-dir` loading for the same workspace. |
@@ -18,6 +19,30 @@
 | 0.3.0 | 2026-03-28 | **Narrow backend matrix v2 completed** | Recorded PASS / FAIL / INCONCLUSIVE outcomes for the self-contained backend specialist routing tests. |
 | 0.2.0 | 2026-03-28 | **First sync and validation completed** | Synced the governed source fleet to runtime and recorded the first routing validation findings. |
 | 0.1.0 | 2026-03-28 | **Governance baseline initialized** | Created master changelog skeleton for the `general-expert` governed source fleet. |
+
+---
+
+## Version 0.9.0: Multilingual Intent-Oriented Routing Metadata Applied
+
+**Date:** 2026-04-03
+**Status:** Implemented - Pending Review
+
+### Changed
+
+- Tightened all 7 source runtime agent `description` lines so routing metadata now emphasizes task/domain intent more explicitly across prompt languages.
+- Kept the substantive agent bodies in English while making the routing metadata clearer about multilingual intent handling.
+- Updated fleet-level README/design/TODO/phase/patch wording so multilingual routing remains a front-door metadata concern rather than a full-body translation project.
+- Bumped plugin and marketplace package versions for installed update visibility.
+
+### Validation
+
+- `claude plugins validate ./` succeeds from the repo root.
+- `claude plugins update general-expert@darkwingtm --scope local` succeeds after the version bump.
+- The installed `general-expert@darkwingtm` package updates to `1.1.0`.
+
+### Summary
+
+The governed fleet now applies the multilingual intent-routing rule directly in the live routing metadata, making the front door clearer without translating the deep agent bodies.
 
 ---
 

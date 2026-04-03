@@ -1,6 +1,6 @@
 ---
 name: nodejs-expert
-description: "Use this agent when the user's intent is Node.js runtime, tooling, or platform debugging: event loop behavior, streams, workers, module resolution, package compatibility, memory leaks, profiling, and build/runtime configuration. Prefer routing by task intent rather than exact wording or prompt language. Not for general API or service architecture, auth/database design, or frontend UI work."
+description: "Use this agent when the user's intent is Node.js runtime, tooling, or platform debugging: event loop behavior, streams, workers, module resolution, package compatibility, memory leaks, profiling, and build/runtime configuration. Route by runtime/tooling intent rather than exact wording or prompt language, including multilingual prompts that are still clearly about Node platform behavior. Not for general API or service architecture, auth/database design, or frontend UI work."
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---
