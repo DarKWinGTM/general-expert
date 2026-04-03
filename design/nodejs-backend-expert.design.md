@@ -1,6 +1,6 @@
 # Node.js Backend Expert Design
 
-> **Current Version:** 0.2.0
+> **Current Version:** 0.3.0
 > **Last Updated:** 2026-03-28
 > **Status:** Draft - Validation Follow-up Active
 > **Full history:** [../changelog/nodejs-backend-expert.changelog.md](../changelog/nodejs-backend-expert.changelog.md)

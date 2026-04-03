@@ -72,6 +72,24 @@ The fleet now treats the standalone repo as its active authority, teaches a port
 
 ---
 
+## Version 0.9.0: Multilingual Intent-Oriented Routing Metadata Applied
+
+**Date:** 2026-04-03
+**Status:** Implemented - Pending Review
+
+### Changed
+
+- Applied multilingual, intent-oriented routing metadata across all 7 managed agent `description` lines.
+- Preserved the current environment policy that Node/Python backend specialists remain explicit-invocation-oriented for broad architecture-heavy prompts.
+- Recorded bounded validation findings: React-vs-browser frontend boundary looks cleaner at the metadata layer, while end-to-end routing evidence remains intentionally bounded rather than overclaimed.
+- Bumped plugin and marketplace package versions to `1.1.0`.
+
+### Summary
+
+The fleet now applies multilingual routing support directly in the live routing metadata, but the resulting confidence remains scoped to checked wording and bounded validation evidence rather than a blanket routing guarantee.
+
+---
+
 ## Version 0.7.0: Local Marketplace Install Validated
 
 **Date:** 2026-04-02

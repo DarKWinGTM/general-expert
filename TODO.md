@@ -44,6 +44,7 @@
 
 | Date | Changes |
 |------|---------|
+| 2026-04-04 | Recorded bounded multilingual-routing validation evidence: React-vs-browser boundary looks cleaner at the metadata layer, Node backend explicit-invocation policy remains intact, version drift in `design/nodejs-backend-expert.design.md` was corrected, and the fleet-level docs now state the remaining confidence limits explicitly. |
 | 2026-04-03 | Applied multilingual intent-oriented routing metadata across the 7 agent descriptions, synced the fleet-level docs/governance wording, and bumped the plugin/marketplace package versions to `1.1.0`. |
 | 2026-04-03 | Normalized public install docs to the standalone repo root, validated `claude plugins marketplace add ./ --scope local` plus `claude plugins install general-expert@general-expert --scope local` from the repo root in an isolated HOME, and kept the shared `darkwingtm` path scoped as checked local workspace-development context. |
 | 2026-04-02 | Added the shared local marketplace scaffold, validated local-scope plugin install for `general-expert`, recorded the persisted local settings entry plus plugin-cache path model, and resynchronized README/design/changelog/TODO/phase/patch to match the new activation truth. |

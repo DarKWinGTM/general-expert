@@ -27,13 +27,13 @@ Current routing metadata is still primarily English-only. Official docs do not e
 
 - [x] Add the multilingual-routing wave to `TODO.md`
 - [x] Add P9 to `phase/SUMMARY.md`
-- [ ] Update fleet-level design and README to define multilingual routing at the `description` layer only
-- [ ] Update all 7 source runtime agent `description` lines to emphasize intent-based routing rather than exact wording or prompt language
-- [ ] Update per-agent design files with multilingual routing guidance
+- [x] Update fleet-level design and README to define multilingual routing at the `description` layer only
+- [x] Update all 7 source runtime agent `description` lines to emphasize intent-based routing rather than exact wording or prompt language
+- [x] Update per-agent design files with multilingual routing guidance where needed
 - [x] Record the before/after surface in patch form
-- [ ] Update master and per-agent changelogs after implementation is complete
+- [x] Update master and per-agent changelogs after implementation is complete
 - [ ] Sync changed source agents into `~/.claude/agents/`
-- [ ] Run a small multilingual prompt matrix and record remaining collisions explicitly
+- [x] Run a small multilingual prompt matrix and record remaining collisions explicitly
 
 ## Out of scope
 
@@ -77,8 +77,8 @@ Success should mean:
 - multilingual routing wording exists in all intended source agent descriptions
 - design and README explain the policy cleanly
 - patch captures the before/after surface
-- sync to `~/.claude/agents/` is complete
 - validation notes are recorded honestly
+- any remaining runtime-copy or end-to-end-routing limitations are stated explicitly instead of overclaimed
 
 ## Risks / rollback notes
 

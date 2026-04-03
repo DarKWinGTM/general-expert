@@ -218,10 +218,14 @@ Already established:
 - fresh CLI-process visibility confirms the marketplace-installed fleet remains available across session restarts
 
 Still open:
-- validate whether multilingual intent-oriented routing wording improves specialist matching without adding new collisions
-- decide whether any routing wording needs to be narrowed after live testing
+- decide whether any multilingual routing wording should be narrowed after more live usage evidence
 - decide when the deployed-copy path under `<user-runtime-agents>/` should be retired after marketplace-installed usage remains stable
 - polish public-repo readiness while keeping `@darkwingtm` as the current shared publisher namespace
+
+Current multilingual-routing evidence:
+- React/framework vs browser-platform boundary now looks cleaner at the metadata layer
+- Node backend explicit-invocation policy remains intact after the multilingual wording update
+- current evidence is still bounded to checked wording/validation notes rather than a full end-to-end routing-proof guarantee in every live runtime surface
 
 ---
 
