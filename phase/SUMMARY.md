@@ -1,9 +1,9 @@
 # Phase Summary - General Expert Agent Governance Rollout
 
 > **Project:** General Expert Agents
-> **Scope:** Governance baseline, source-of-truth model, sync discipline, routing validation, runtime-overlay interpretation, and policy reconciliation for the `general-expert` fleet
+> **Scope:** Governance baseline, source-of-truth model, sync discipline, routing validation, runtime-overlay interpretation, policy reconciliation, and routing-skill front door for the `general-expert` fleet
 > **Status:** In Progress
-> **Last Updated:** 2026-04-02
+> **Last Updated:** 2026-04-04
 
 ---
 
@@ -12,13 +12,13 @@
 Maintain a governed source workspace for the reusable expert-agent fleet in:
 
 ```text
-<workspace-root>/
+<repo-root>/
 ```
 
 while keeping the active runtime deployment target in:
 
 ```text
-<user-runtime-agents>/
+Claude plugin cache + local settings via marketplace install
 ```
 
 The goal is not only to store agent files in one directory.
@@ -27,9 +27,10 @@ The goal is to keep a clean governance model that supports:
 - routing/taxonomy control
 - changelog/TODO traceability
 - patch-backed evidence for important changes
-- repeatable sync from source to runtime
+- repeatable sync from source to runtime when the deployed-copy path is still intentionally used
 - plugin-compatible loading from the same governed workspace
 - explicit interpretation of runtime behavior in a mixed live environment
+- a routing-skill front door that helps users choose specialists without depending only on agent-name recall
 
 ---
 
@@ -47,7 +48,8 @@ The goal is to keep a clean governance model that supports:
 | P8 | `phase-080-routing-policy-closure.md` | `../design/design.md` section: Validation and Policy Model plus frontend/runtime per-agent designs | `../patch/phase-080-frontend-runtime-routing-policy.patch.md` | Close the current Bun/browser/React operator policy surface | Open routing-policy ambiguity is reduced to explicit operator guidance |
 | P9 | `phase-090-multilingual-routing-interpretation.md` | `../design/design.md` section: multilingual routing policy plus all per-agent routing-intent sections | `../patch/phase-090-multilingual-routing-interpretation.patch.md` | Improve multilingual intent-oriented routing across specialist surfaces without translating full bodies | Specialist detection becomes easier to align and validate across prompt languages |
 | P10 | `phase-100-plugin-compatible-fleet-layout.md` | `../design/design.md` source-of-truth model plus plugin-compatible workspace rules | `../patch/phase-100-plugin-compatible-fleet-layout.patch.md` | Refactor the fleet into a single-workspace plugin-compatible layout and validate both local plugin-dir loading and local marketplace install | The governed fleet works through `agents/` plus plugin metadata without a duplicate project |
-| P11 | `phase-110-separate-repo-cutover.md` | `../design/design.md` plus package-local marketplace cutover posture | none | Prepare authority migration from the shared workspace into a standalone `general-expert` repo | Package can cut over to its own repo without duplicate authority |
+| P11 | `phase-110-separate-repo-cutover.md` | `../design/design.md` plus package-local marketplace cutover posture | `../patch/phase-110-separate-repo-cutover.patch.md` | Prepare authority migration from the shared workspace into a standalone `general-expert` repo | Package can cut over to its own repo without duplicate authority |
+| P12 | `phase-120-routing-skill-front-door.md` | `../design/design.md` sections: Purpose, Source-of-Truth Model, Governance Companions | `../patch/phase-120-routing-skill-front-door.patch.md` | Add an operator-facing routing skill so specialist selection no longer depends only on agent-name recall | The fleet gains a support-facing routing front door without changing runtime authority ownership |
 
 ---
 
@@ -63,11 +65,12 @@ Current governed state
   → governed source workspace is authority for the managed fleet
   → per-agent design/changelog files exist
   → source agent files can be loaded from `agents/` through `--plugin-dir`
-  → source agent files have also been synced into <user-runtime-agents>/
+  → active runtime delivery now comes from marketplace-installed plugin cache + local settings
   → first routing validation matrix has completed
   → backend specialist policy is explicit for this environment
   → patch layer now captures sync / validation / reconciliation evidence
   → runtime-overlay interpretation is documented explicitly
+  → routing skill front door now exists for specialist selection
 ```
 
 ---
@@ -87,6 +90,7 @@ Current governed state
 | P9 | `phase-090-multilingual-routing-interpretation.md` | Implemented - Pending Review | Review Pending | Awaiting Review | multilingual routing interpretation wording applied across the fleet |
 | P10 | `phase-100-plugin-compatible-fleet-layout.md` | Implemented - Pending Review | Review Pending | Awaiting Review | plugin-compatible fleet layout plus local marketplace install validated |
 | P11 | `phase-110-separate-repo-cutover.md` | Implemented - Pending Review | Review Pending | Awaiting Review | standalone repo exists; repo-root install validated; authority-retirement step still pending |
+| P12 | `phase-120-routing-skill-front-door.md` | Implemented - Pending Review | Review Pending | Awaiting Review | routing skill front door exists; fleet-level docs/versioning now reflect the new operator surface |
 
 ---
 
@@ -108,6 +112,7 @@ Current governed state
 - P8 converted the remaining Bun/browser/React decision surface into explicit operator policy instead of leaving it implicit in TODO.
 - P9 opens a bounded multilingual-routing interpretation wave so specialist descriptions rely more on task/domain intent than exact wording or prompt language.
 - P10 refactored the fleet into a plugin-compatible `agents/` layout, validated local `--plugin-dir` loading, validated local marketplace install, and retired the redundant loose-file runtime copies in `<user-runtime-agents>/`.
+- The current product wave adds a routing-skill front door so operator usage can begin from a specialist-selection surface instead of agent-name recall only.
 - Changelog should record shipped or synchronized changes only.
 - TODO should track execution work only.
 
@@ -116,11 +121,12 @@ Current governed state
 ## Verification requirements
 
 End-to-end success should show:
-- `general-expert/` remains the documented source-of-truth workspace
-- `general-expert/agents/` remains the plugin-compatible runtime source for the managed fleet
-- `<user-runtime-agents>/` remains the deployed runtime target when the deployed-copy path is still used
+- `<repo-root>/` remains the documented source-of-truth workspace
+- `skills/routing/SKILL.md` exists as an operator-facing routing front door for the managed fleet
+- `<repo-root>/agents/` remains the plugin-compatible runtime source for the managed fleet
+- marketplace-installed plugin cache + local settings remain the active runtime delivery path for this fleet
 - master and per-agent design/changelog files remain aligned
-- source and runtime agent files can be kept in sync intentionally
+- source and runtime agent files can be kept in sync intentionally when the deployed-copy path is still used
 - the initial runtime sync and validation evidence is captured in patch form
 - routing/debug work can be performed against the per-agent design targets with explicit policy guidance
 - runtime-overlay interpretation remains honest about co-resident unmanaged agents
@@ -131,7 +137,7 @@ End-to-end success should show:
 ## Rollback boundary
 
 If the governance rollout becomes confusing or unstable:
-- keep the current runtime agent files usable in `<user-runtime-agents>/`
-- avoid deleting working runtime agents during documentation refactoring
+- keep the current marketplace-installed fleet usable while reverting doc/governance wording carefully
+- avoid deleting working runtime agents during documentation refactoring if the deployed-copy path is temporarily reused
 - preserve the last known-good governed source wording before additional routing-policy changes
 - prefer explicit patch-backed reconciliation over silent drift between artifact layers

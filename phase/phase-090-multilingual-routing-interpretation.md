@@ -2,7 +2,7 @@
 
 > **Summary File:** [SUMMARY.md](SUMMARY.md)
 > **Phase ID:** P9
-> **Status:** In Progress
+> **Status:** Implemented - Pending Review
 > **Design References:** [../design/design.md](../design/design.md), [../design/nodejs-expert.design.md](../design/nodejs-expert.design.md), [../design/nodejs-backend-expert.design.md](../design/nodejs-backend-expert.design.md), [../design/bun-expert.design.md](../design/bun-expert.design.md), [../design/bun-backend-expert.design.md](../design/bun-backend-expert.design.md), [../design/html-css-js-frontend-expert.design.md](../design/html-css-js-frontend-expert.design.md), [../design/react-frontend-expert.design.md](../design/react-frontend-expert.design.md), [../design/python-backend-expert.design.md](../design/python-backend-expert.design.md)
 > **Patch References:** [../patch/phase-090-multilingual-routing-interpretation.patch.md](../patch/phase-090-multilingual-routing-interpretation.patch.md)
 
@@ -32,7 +32,7 @@ Current routing metadata is still primarily English-only. Official docs do not e
 - [x] Update per-agent design files with multilingual routing guidance where needed
 - [x] Record the before/after surface in patch form
 - [x] Update master and per-agent changelogs after implementation is complete
-- [ ] Sync changed source agents into `~/.claude/agents/`
+- [ ] Sync changed source agents into `<user-runtime-agents>/` only if the deployed-copy path is intentionally used again
 - [x] Run a small multilingual prompt matrix and record remaining collisions explicitly
 
 ## Out of scope
@@ -49,10 +49,10 @@ Current routing metadata is still primarily English-only. Official docs do not e
 - `../TODO.md`
 - `../phase/SUMMARY.md`
 - `../patch/phase-090-multilingual-routing-interpretation.patch.md`
-- all 7 runtime agent files at the workspace root
+- all 7 runtime agent files under `../agents/`
 - all 7 per-agent design files
 - master and per-agent changelog files
-- deployed managed runtime copies under `~/.claude/agents/`
+- deployed managed runtime copies under `<user-runtime-agents>/` only if the deployed-copy path is intentionally used again
 
 ## TODO coordination
 

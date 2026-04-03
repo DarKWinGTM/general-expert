@@ -15,6 +15,7 @@ It is responsible for:
 - validation evidence for routing behavior
 - explicit operator policy when routing behavior is environment-dependent
 - multilingual, intent-oriented front-door routing metadata without translating full agent bodies
+- an operator-facing routing skill front door for specialist selection
 
 ---
 
@@ -53,6 +54,13 @@ claude plugins list
 claude agents
 ```
 
+Use the routing front door after install:
+
+```bash
+/routing I need help choosing the right specialist for a Next.js hydration problem
+/routing Should this Fastify auth refactor go to nodejs-expert or nodejs-backend-expert?
+```
+
 Checked local validation from the repo root:
 - `claude plugins marketplace add ./ --scope local` succeeds
 - `claude plugins install general-expert@general-expert --scope local` succeeds
@@ -87,7 +95,7 @@ The same fleet may still be referenced through the shared local `darkwingtm` mar
 ### Governed source workspace
 
 ```text
-<workspace-root>/
+<repo-root>/
 ```
 
 ### Active runtime deployment target
@@ -98,10 +106,13 @@ Claude plugin cache + local settings via marketplace install
 
 The old loose-file deployment target under `<user-runtime-agents>/` is now retired for this fleet.
 
+A dedicated routing skill now exists under `skills/routing/` so operator usage can start from a front-door specialist-selection surface instead of agent-name recall only.
+
 ### Authority rule
 
-- `general-expert/agents/*.md` = governed source agent files
-- `<user-runtime-agents>/*.md` = deployed runtime copies only
+- `<repo-root>/agents/*.md` = governed source agent files
+- `<repo-root>/skills/routing/SKILL.md` = operator-facing routing support surface for the same governed fleet
+- `<user-runtime-agents>/*.md` = deployed runtime copies only when the old loose-file path is still intentionally used
 - design / changelog / TODO / phase / patch govern the source layer
 - direct runtime edits should be back-ported into the governed source immediately
 
@@ -127,6 +138,7 @@ The old loose-file deployment target under `<user-runtime-agents>/` is now retir
 |----------|------|
 | `README.md` | Workspace operator entrypoint |
 | `.claude-plugin/plugin.json` | Plugin-compatible packaging metadata for the same fleet workspace |
+| `skills/routing/SKILL.md` | Routing front door for choosing the right specialist |
 | `agents/*.md` | Fleet runtime authority files |
 | `design/design.md` | Fleet-level architecture and governance authority |
 | `design/*.design.md` | Per-agent design authority |
@@ -161,6 +173,8 @@ The old loose-file deployment target under `<user-runtime-agents>/` is now retir
 - `phase-080-routing-policy-closure.md`
 - `phase-090-multilingual-routing-interpretation.md`
 - `phase-100-plugin-compatible-fleet-layout.md`
+- `phase-110-separate-repo-cutover.md`
+- `phase-120-routing-skill-front-door.md`
 
 ### Patch family
 
@@ -179,6 +193,8 @@ Current active patch set:
 - `patch/phase-080-frontend-runtime-routing-policy.patch.md`
 - `patch/phase-090-multilingual-routing-interpretation.patch.md`
 - `patch/phase-100-plugin-compatible-fleet-layout.patch.md`
+- `patch/phase-110-separate-repo-cutover.patch.md`
+- `patch/phase-120-routing-skill-front-door.patch.md`
 
 ---
 
@@ -216,10 +232,11 @@ Already established:
 - repo-root local marketplace install is now validated for the standalone package
 - plugin visibility remains intact after `/reload-plugins`
 - fresh CLI-process visibility confirms the marketplace-installed fleet remains available across session restarts
+- a routing skill front door now exists for specialist selection and explicit-invocation guidance
 
 Still open:
 - decide whether any multilingual routing wording should be narrowed after more live usage evidence
-- decide when the deployed-copy path under `<user-runtime-agents>/` should be retired after marketplace-installed usage remains stable
+- gather more live usage evidence for the routing skill front door and specialist-boundary guidance
 - polish public-repo readiness while keeping `@darkwingtm` as the current shared publisher namespace
 
 Current multilingual-routing evidence:

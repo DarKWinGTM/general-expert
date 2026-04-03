@@ -1,6 +1,6 @@
 # General Expert Agents - TODO
 
-> **Last Updated:** 2026-04-03
+> **Last Updated:** 2026-04-04
 
 ---
 
@@ -38,12 +38,16 @@
 - [ ] Add `support/sync-checklist.md` for repeatable deployment hygiene.
 - [ ] Add phased rollout files later if the fleet evolves through another bounded implementation slice beyond the current reconciliation wave.
 
+### Product Surface Improvements
+- [x] Add a dedicated routing skill surface so the fleet can be used from an operator-facing front door rather than agent-name recall only.
+
 ---
 
 ## 📜 History
 
 | Date | Changes |
 |------|---------|
+| 2026-04-04 | Added `skills/routing/SKILL.md`, updated the fleet-level front door to include a routing skill surface, and bumped the plugin/marketplace package versions to `1.2.0`. |
 | 2026-04-04 | Recorded bounded multilingual-routing validation evidence: React-vs-browser boundary looks cleaner at the metadata layer, Node backend explicit-invocation policy remains intact, version drift in `design/nodejs-backend-expert.design.md` was corrected, and the fleet-level docs now state the remaining confidence limits explicitly. |
 | 2026-04-03 | Applied multilingual intent-oriented routing metadata across the 7 agent descriptions, synced the fleet-level docs/governance wording, and bumped the plugin/marketplace package versions to `1.1.0`. |
 | 2026-04-03 | Normalized public install docs to the standalone repo root, validated `claude plugins marketplace add ./ --scope local` plus `claude plugins install general-expert@general-expert --scope local` from the repo root in an isolated HOME, and kept the shared `darkwingtm` path scoped as checked local workspace-development context. |

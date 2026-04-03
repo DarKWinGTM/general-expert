@@ -24,8 +24,8 @@ The old root-file layout governed the fleet well enough for loose-file sync into
 - [x] Validate `claude --plugin-dir` visibility for the fleet
 - [x] Complete full doc reconciliation for the new layout baseline needed for local marketplace install
 - [x] Validate local marketplace install for the same governed fleet workspace
-- [ ] Validate `/reload-plugins` and restart-time visibility from the marketplace-installed path if hot-reload behavior still matters operationally
-- [ ] Decide when the persistent path should stay deployed-copy based versus move fully to marketplace-distributed
+- [x] Validate `/reload-plugins` and restart-time visibility from the marketplace-installed path
+- [x] Retire the redundant deployed-copy path in favor of marketplace-distributed activation for this fleet
 
 ## Verification
 

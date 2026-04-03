@@ -1,7 +1,7 @@
 # General Expert Agents Design
 
-> **Current Version:** 0.5.0
-> **Last Updated:** 2026-04-02
+> **Current Version:** 0.6.0
+> **Last Updated:** 2026-04-04
 > **Status:** Active - Standalone Repo Authority
 > **Full history:** [../changelog/changelog.md](../changelog/changelog.md)
 
@@ -11,7 +11,7 @@
 
 > **Parent Scope:** TEMPLATE / PLUGIN / general-expert
 > **Design Type:** Agent Fleet Architecture + Governance
-> **Runtime Target:** `<user-runtime-agents>/` plus plugin-compatible loading from the same workspace
+> **Runtime Target:** marketplace-installed plugin cache + local settings, with `<user-runtime-agents>/` only when the deployed-copy path is intentionally reused
 > **Source of Truth:** `<repo-root>/`
 
 ---
@@ -25,7 +25,9 @@
 
 ## 2. Purpose
 
-This document defines the design baseline for the reusable expert-agent fleet stored in `general-expert/`.
+This document defines the design baseline for the reusable expert-agent fleet governed from `<repo-root>/`.
+The active package now includes a dedicated routing skill front door so fleet usage can start from an operator-facing selection surface rather than agent-name recall only.
+The intended use is bounded: it should guide specialist choice and explicit-invocation posture, not become a competing runtime authority.
 
 The goal is to manage these agents as governed source artifacts before deployment to the active Claude Code runtime directory.
 
@@ -58,7 +60,7 @@ The active runtime copies used by Claude Code now come from marketplace-installe
 Observed current-machine install path:
 
 ```text
-~/.claude/plugins/cache/darkwingtm/general-expert/1.0.0/
+~/.claude/plugins/cache/darkwingtm/general-expert/1.2.0/
 ```
 
 The older loose-file deployment path under `<user-runtime-agents>/` is now retired for this fleet.
@@ -66,7 +68,8 @@ The older loose-file deployment path under `<user-runtime-agents>/` is now retir
 ### 2.3 Authority rule
 
 - `<repo-root>/agents/*.md` = governed source runtime definitions
-- `<user-runtime-agents>/*.md` = deployed runtime copies only
+- `<repo-root>/skills/routing/SKILL.md` = operator-facing routing support surface for the same governed fleet
+- `<user-runtime-agents>/*.md` = deployed runtime copies only when the old loose-file path is still intentionally used
 - `.claude-plugin/plugin.json` = plugin-compatible packaging metadata for the same governed fleet
 - design/changelog/TODO/phase/patch govern the standalone repo source layer, not the deployed copy
 - shared-workspace usage, when it still exists locally, is compatibility context only and not source authority
@@ -74,7 +77,7 @@ The older loose-file deployment path under `<user-runtime-agents>/` is now retir
 ### 2.4 Sync rule
 
 Direct runtime edits should be avoided.
-If a runtime hotfix is applied in `<user-runtime-agents>/`, it must be back-ported into `general-expert/` immediately.
+If a runtime hotfix is applied in `<user-runtime-agents>/`, it must be back-ported into `<repo-root>/` immediately.
 
 ---
 
@@ -197,18 +200,18 @@ Adjacent agents must be able to answer these questions clearly:
 ### 6.1 Standard path
 
 1. Update design if behavior/scope changes
-2. Update source agent file in `general-expert/agents/`
+2. Update the governed source agent or skill file under `<repo-root>/agents/` or `<repo-root>/skills/`
 3. Validate plugin-compatible loading from the same workspace when relevant
 4. Validate repo-root local marketplace install with `claude plugins marketplace add ./ --scope local` when public local activation matters
 5. Treat the shared `darkwingtm` route only as checked local workspace-development context when it is still useful
 6. Sync source agent file to `<user-runtime-agents>/` only when the deployed-copy path is still intentionally needed
-7. Validate discovery/routing
+7. Validate discovery, routing, and routing-front-door behavior
 8. Update changelog and TODO
 
 ### 6.2 Hotfix path
 
 1. Apply urgent runtime fix in `<user-runtime-agents>/`
-2. Back-port immediately into `general-expert/`
+2. Back-port immediately into `<repo-root>/`
 3. Record the hotfix in changelog and TODO history
 
 ### 6.3 Validation baseline
@@ -326,6 +329,7 @@ It does not claim that the runtime is a clean 7-agent-only test surface.
 |----------|------|
 | `README.md` | Workspace operator entrypoint |
 | `.claude-plugin/plugin.json` | Plugin-compatible packaging metadata |
+| `skills/routing/SKILL.md` | Operator-facing routing front door for specialist selection |
 | `agents/*.md` | Fleet runtime authority |
 | `design/design.md` | Architecture and governance authority |
 | `changelog/changelog.md` | Master shipped/synchronized history |
@@ -341,6 +345,7 @@ Future additions can include:
 - a routing debug sheet under `support/`
 - a sync checklist under `support/`
 - narrower policy guidance once Bun/browser/React closure work finishes
+- richer operator guidance around the routing skill only if it stays support-facing rather than becoming a competing runtime authority
 
 ---
 

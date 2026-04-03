@@ -1,8 +1,8 @@
 # General Expert Agents Changelog
 
 > **Parent Document:** [../design/design.md](../design/design.md)
-> **Current Version:** 0.9.0
-> **Last Updated:** 2026-04-02
+> **Current Version:** 1.2.0
+> **Last Updated:** 2026-04-04
 
 ---
 
@@ -10,6 +10,7 @@
 
 | Version | Date | Changes | Summary |
 |---------|------|---------|---------|
+| 1.2.0 | 2026-04-04 | **Routing skill front door added** | Added a dedicated routing skill surface so users can choose the right specialist and understand explicit-invocation guidance without depending only on agent-name recall. |
 | 0.9.0 | 2026-04-03 | **Multilingual intent-oriented routing metadata applied** | Tightened the 7 agent description lines and fleet-level docs so routing metadata follows task/domain intent more clearly across prompt languages without translating full agent bodies. |
 | 0.8.0 | 2026-04-03 | **Repo-root install docs normalized and validated** | Reworked the public install story around repo-root local marketplace usage, validated `./`-based install from the standalone repo root, and kept the shared `darkwingtm` route scoped as local workspace development context. |
 | 0.7.0 | 2026-04-02 | **Local marketplace install validated** | Added the shared local marketplace scaffold, installed the fleet through local marketplace settings, and verified the plugin-installed fleet appears in normal agent discovery. |
@@ -22,6 +23,33 @@
 
 ---
 
+## Version 1.2.0: Routing Skill Front Door Added
+
+**Date:** 2026-04-04
+**Status:** Implemented - Pending Review
+
+### Added
+
+- Added `skills/routing/SKILL.md` as a dedicated operator-facing front door for specialist selection.
+- Added a compact routing map that explains backend vs runtime vs frontend specialist boundaries in one place.
+
+### Changed
+
+- Updated README/design/TODO/phase wording so the routing skill is treated as a support surface rather than a competing runtime authority.
+- Bumped plugin and marketplace package versions to `1.2.0` for installed update visibility.
+
+### Validation
+
+- `skills/routing/SKILL.md` exists as the routing front door for the package.
+- Fleet-level docs now describe the routing skill as a support-facing operator surface.
+- Plugin and marketplace metadata now expose version `1.2.0`.
+
+### Summary
+
+The governed fleet now has a real routing front door, so users can choose the right specialist and see explicit-invocation guidance without relying only on agent-name recall.
+
+---
+
 ## Version 0.9.0: Multilingual Intent-Oriented Routing Metadata Applied
 
 **Date:** 2026-04-03
@@ -29,20 +57,14 @@
 
 ### Changed
 
-- Tightened all 7 source runtime agent `description` lines so routing metadata now emphasizes task/domain intent more explicitly across prompt languages.
-- Kept the substantive agent bodies in English while making the routing metadata clearer about multilingual intent handling.
-- Updated fleet-level README/design/TODO/phase/patch wording so multilingual routing remains a front-door metadata concern rather than a full-body translation project.
-- Bumped plugin and marketplace package versions for installed update visibility.
-
-### Validation
-
-- `claude plugins validate ./` succeeds from the repo root.
-- `claude plugins update general-expert@darkwingtm --scope local` succeeds after the version bump.
-- The installed `general-expert@darkwingtm` package updates to `1.1.0`.
+- Applied multilingual, intent-oriented routing metadata across all 7 managed agent `description` lines.
+- Preserved the current environment policy that Node/Python backend specialists remain explicit-invocation-oriented for broad architecture-heavy prompts.
+- Recorded bounded validation findings: React-vs-browser frontend boundary looks cleaner at the metadata layer, while end-to-end routing evidence remains intentionally bounded rather than overclaimed.
+- Bumped plugin and marketplace package versions to `1.1.0`.
 
 ### Summary
 
-The governed fleet now applies the multilingual intent-routing rule directly in the live routing metadata, making the front door clearer without translating the deep agent bodies.
+The fleet now applies multilingual routing support directly in the live routing metadata, but the resulting confidence remains scoped to checked wording and bounded validation evidence rather than a blanket routing guarantee.
 
 ---
 
@@ -72,24 +94,6 @@ The fleet now treats the standalone repo as its active authority, teaches a port
 
 ---
 
-## Version 0.9.0: Multilingual Intent-Oriented Routing Metadata Applied
-
-**Date:** 2026-04-03
-**Status:** Implemented - Pending Review
-
-### Changed
-
-- Applied multilingual, intent-oriented routing metadata across all 7 managed agent `description` lines.
-- Preserved the current environment policy that Node/Python backend specialists remain explicit-invocation-oriented for broad architecture-heavy prompts.
-- Recorded bounded validation findings: React-vs-browser frontend boundary looks cleaner at the metadata layer, while end-to-end routing evidence remains intentionally bounded rather than overclaimed.
-- Bumped plugin and marketplace package versions to `1.1.0`.
-
-### Summary
-
-The fleet now applies multilingual routing support directly in the live routing metadata, but the resulting confidence remains scoped to checked wording and bounded validation evidence rather than a blanket routing guarantee.
-
----
-
 ## Version 0.7.0: Local Marketplace Install Validated
 
 **Date:** 2026-04-02
@@ -111,7 +115,7 @@ The fleet now applies multilingual routing support directly in the live routing 
 - `claude plugins marketplace add <marketplace-root> --scope local` succeeds.
 - `claude plugins install general-expert@darkwingtm --scope local` succeeds.
 - `claude agents` shows the full `general-expert:*` fleet in normal discovery after install.
-- plugin cache materializes under `~/.claude/plugins/cache/darkwingtm/general-expert/1.0.0/`.
+- plugin cache materializes under `~/.claude/plugins/cache/darkwingtm/general-expert/1.0.0/` during the checked install wave.
 - the full `general-expert:*` fleet remains visible after `/reload-plugins`.
 - the full `general-expert:*` fleet also remains visible from a fresh CLI process, closing the current restart-time lifecycle check.
 
