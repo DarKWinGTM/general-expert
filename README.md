@@ -19,32 +19,23 @@ It is responsible for:
 
 ## Path notation
 
-- `<workspace-root>` = this plugin package root
-- `<marketplace-root>` = the current shared local marketplace root that contains package directories plus `.claude-plugin/marketplace.json`
-- `<repo-marketplace-root>` = this package root when it becomes its own standalone plugin repo with local marketplace support
+- `<repo-root>` = this standalone repo root and the preferred public source-side path for install commands
+- `<workspace-root>` = the current local working copy of the same package
 - `<user-runtime-agents>` = the user-level Claude Code runtime agent directory
 - `<user-runtime-skills>` = the user-level Claude Code runtime skill directory
 
 ## Installation and activation
 
-### Local marketplace install in the current shared workspace
-Add the current shared marketplace once:
+### Recommended public install path
+This package now has its own standalone GitHub repo at:
+- `https://github.com/DarKWinGTM/general-expert`
+
+Clone once, then run the install from the repo root:
 
 ```bash
-claude plugins marketplace add "/home/node/workplace/AWCLOUD/TEMPLATE/PLUGIN" --scope local
-```
-
-Install this package:
-
-```bash
-claude plugins install general-expert@darkwingtm --scope local
-```
-
-### Standalone-repo local marketplace install target
-When this package becomes its own repo, the intended local marketplace shape is:
-
-```bash
-claude plugins marketplace add "<repo-marketplace-root>" --scope local
+git clone https://github.com/DarKWinGTM/general-expert.git
+cd general-expert
+claude plugins marketplace add ./ --scope local
 claude plugins install general-expert@general-expert --scope local
 ```
 
@@ -61,13 +52,22 @@ claude plugins list
 claude agents
 ```
 
+Checked local validation from the repo root:
+- `claude plugins marketplace add ./ --scope local` succeeds
+- `claude plugins install general-expert@general-expert --scope local` succeeds
+- `claude agents` shows the full `general-expert:*` fleet
+
 ### Alternate activation paths
 
 | Path | Current meaning | Status |
 |---|---|---|
-| `claude --plugin-dir "<workspace-root>"` | local plugin-source loading for the same governed fleet workspace | verified locally |
+| `claude --plugin-dir "<repo-root>"` | local plugin-source loading for the same governed fleet from the standalone repo | verified locally |
 | sync to `<user-runtime-agents>/` | deployed runtime-copy path for the fleet | historical/current runtime path |
-| `/plugin marketplace add <marketplace-root>` + `/plugin install <plugin@marketplace>` | marketplace-style install path for the same workspace | validated locally via `darkwingtm` |
+| `claude plugins marketplace add ./ --scope local` + `claude plugins install general-expert@general-expert --scope local` | repo-root local marketplace install for the standalone repo | validated locally |
+
+### Checked local development note
+
+The same fleet is also currently validated through the shared local `darkwingtm` marketplace during workspace development. That shared-marketplace route is a checked local development path, not the public default install story for this repo.
 
 ## Source of Truth and Runtime Target
 
@@ -199,15 +199,16 @@ Already established:
 - patch baseline for sync, validation, policy, and governance reconciliation evidence
 - plugin-compatible layout with `agents/` plus `.claude-plugin/plugin.json`
 - verified local plugin-source loading through `--plugin-dir`
-- shared local marketplace scaffolding now exposes this fleet for marketplace-style local install without creating a duplicate workspace
-- local marketplace install is now validated through `darkwingtm`
+- shared local marketplace scaffolding also exposes this fleet for checked workspace development, but that is no longer the recommended public install story
+- repo-root local marketplace install is now validated for the standalone package
 - plugin visibility remains intact after `/reload-plugins`
+- fresh CLI-process visibility confirms the marketplace-installed fleet remains available across session restarts
 
 Still open:
 - validate whether multilingual intent-oriented routing wording improves specialist matching without adding new collisions
 - decide whether any routing wording needs to be narrowed after live testing
 - decide when the deployed-copy path under `<user-runtime-agents>/` should be retired after marketplace-installed usage remains stable
-- complete separate-repo cutover so this fleet can leave the shared workspace cleanly
+- polish public-repo readiness while keeping `@darkwingtm` as the current shared publisher namespace
 
 ---
 

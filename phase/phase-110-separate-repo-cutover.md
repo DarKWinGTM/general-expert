@@ -2,19 +2,20 @@
 
 > **Summary File:** [SUMMARY.md](SUMMARY.md)
 > **Phase ID:** P11
-> **Status:** Pending
+> **Status:** Implemented - Pending Review
 > **Design References:** [../design/design.md](../design/design.md)
-> **Patch References:** none
+> **Patch References:** [../patch/phase-110-separate-repo-cutover.patch.md](../patch/phase-110-separate-repo-cutover.patch.md)
 
 ---
 
 ## Objective
 
-Prepare `general-expert` to become its own standalone GitHub repo without leaving duplicate authority behind in the shared workspace.
+Finalize `general-expert` as its own standalone GitHub repo authority without leaving duplicate public install posture behind in the shared workspace.
 
 ## Action points / execution checklist
-- [ ] finish restart-time visibility validation
+- [x] finish restart-time visibility validation
 - [ ] close remaining multilingual-routing and governance follow-up as needed for cutover
-- [ ] create/push `DarKWinGTM/general-expert`
+- [x] create/push `DarKWinGTM/general-expert`
+- [x] validate repo-root local marketplace install from `./`
 - [ ] switch authority from shared workspace to standalone repo
 - [ ] retire shared-workspace authority cleanly

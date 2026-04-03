@@ -10,6 +10,7 @@
 
 | Version | Date | Changes | Summary |
 |---------|------|---------|---------|
+| 0.8.0 | 2026-04-03 | **Repo-root install docs normalized and validated** | Reworked the public install story around repo-root local marketplace usage, validated `./`-based install from the standalone repo root, and kept the shared `darkwingtm` route scoped as local workspace development context. |
 | 0.7.0 | 2026-04-02 | **Local marketplace install validated** | Added the shared local marketplace scaffold, installed the fleet through local marketplace settings, and verified the plugin-installed fleet appears in normal agent discovery. |
 | 0.6.0 | 2026-04-01 | **Plugin-compatible fleet layout validated** | Refactored the fleet into `agents/`, added `.claude-plugin/plugin.json`, fixed agent frontmatter parsing, and verified local `--plugin-dir` loading for the same workspace. |
 | 0.5.0 | 2026-03-31 | **Multilingual routing interpretation wave opened** | Began shifting routing strategy from language-specific alias thinking toward multilingual intent-based routing wording. |
@@ -17,6 +18,31 @@
 | 0.3.0 | 2026-03-28 | **Narrow backend matrix v2 completed** | Recorded PASS / FAIL / INCONCLUSIVE outcomes for the self-contained backend specialist routing tests. |
 | 0.2.0 | 2026-03-28 | **First sync and validation completed** | Synced the governed source fleet to runtime and recorded the first routing validation findings. |
 | 0.1.0 | 2026-03-28 | **Governance baseline initialized** | Created master changelog skeleton for the `general-expert` governed source fleet. |
+
+---
+
+## Version 0.8.0: Repo-root Install Docs Normalized and Validated
+
+**Date:** 2026-04-03
+**Status:** Implemented - Pending Review
+
+### Changed
+
+- Reworked `README.md` so the public install path now starts from the standalone repo root instead of the shared `TEMPLATE/PLUGIN` workspace path.
+- Replaced source-side public install examples with repo-root guidance using:
+  - `claude plugins marketplace add ./ --scope local`
+  - `claude plugins install general-expert@general-expert --scope local`
+- Kept the shared `darkwingtm` marketplace route documented only as a checked local development note rather than the public default install story.
+
+### Validation
+
+- `claude plugins marketplace add ./ --scope local` succeeds from the repo root.
+- `claude plugins install general-expert@general-expert --scope local` succeeds from the repo root.
+- `claude agents` shows the full `general-expert:*` fleet after repo-root install.
+
+### Summary
+
+The fleet now teaches a portable public install story from its own repo root while preserving the shared `darkwingtm` route only as scoped local workspace context.
 
 ---
 
@@ -43,6 +69,7 @@
 - `claude agents` shows the full `general-expert:*` fleet in normal discovery after install.
 - plugin cache materializes under `~/.claude/plugins/cache/darkwingtm/general-expert/1.0.0/`.
 - the full `general-expert:*` fleet remains visible after `/reload-plugins`.
+- the full `general-expert:*` fleet also remains visible from a fresh CLI process, closing the current restart-time lifecycle check.
 
 ### Summary
 

@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Plugin-compatible packaging for the general-expert specialist agent fleet.",
   "author": {
-    "name": "DarKWinGTM"
+    "name": "DarKWinGTM",
+    "url": "https://github.com/DarKWinGTM"
   },
+  "homepage": "https://github.com/DarKWinGTM/general-expert",
+  "repository": "https://github.com/DarKWinGTM/general-expert",
+  "license": "UNLICENSED",
   "keywords": ["agents", "nodejs", "bun", "react", "python"]
 }

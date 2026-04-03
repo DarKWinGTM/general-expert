@@ -29,7 +29,7 @@
 - [ ] Execute the multilingual-routing interpretation wave so specialist descriptions rely more on task/domain intent than exact wording or prompt language, without translating full agent bodies.
 - [x] Validate that local marketplace install can replace plugin-dir for stable local activation of the governed fleet.
 - [x] Validate `/reload-plugins` visibility from the marketplace-installed path.
-- [ ] Validate restart-time visibility from the marketplace-installed path.
+- [x] Validate restart-time visibility from the marketplace-installed path.
 - [x] Retire the redundant loose-file runtime copies from `<user-runtime-agents>/` in favor of the marketplace-installed path for this fleet.
 - [ ] Complete separate-repo cutover and retire shared-workspace authority once the standalone repo becomes the source of truth.
 
@@ -44,6 +44,7 @@
 
 | Date | Changes |
 |------|---------|
+| 2026-04-03 | Normalized public install docs to the standalone repo root, validated `claude plugins marketplace add ./ --scope local` plus `claude plugins install general-expert@general-expert --scope local` from the repo root in an isolated HOME, and kept the shared `darkwingtm` path scoped as checked local workspace-development context. |
 | 2026-04-02 | Added the shared local marketplace scaffold, validated local-scope plugin install for `general-expert`, recorded the persisted local settings entry plus plugin-cache path model, and resynchronized README/design/changelog/TODO/phase/patch to match the new activation truth. |
 | 2026-03-30 | Added workspace `README.md`, created the initial `patch/*.patch.md` evidence layer, reconciled P4/P5 phase status drift, opened phases 060/070/080, documented runtime-overlay interpretation, and closed the current frontend/runtime routing-policy decision surface. |
 | 2026-03-28 | Completed narrow backend validation matrix v2. Results: `nodejs-backend-expert` = FAIL(explicit)/PASS(domain) for N2-v2 and N4-v2, INCONCLUSIVE for N1-v2 due missing Fastify target in scope; `python-backend-expert` = FAIL(explicit)/PASS(domain) for P2-v2 and P5-v2, INCONCLUSIVE for P1-v2 due missing FastAPI OAuth callback target in scope. |

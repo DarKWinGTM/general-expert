@@ -18,9 +18,8 @@
 
 ## 1. Path notation
 
-- `<workspace-root>` = this plugin package root
-- `<marketplace-root>` = the current shared local marketplace root that contains package directories plus `.claude-plugin/marketplace.json`
-- `<repo-marketplace-root>` = this package root when it becomes its own standalone plugin repo with local marketplace support
+- `<repo-root>` = this standalone repo root and the preferred public source-side path for install commands
+- `<workspace-root>` = the current local working copy of the same package
 - `<user-runtime-agents>` = the user-level Claude Code runtime agent directory
 - `<user-runtime-skills>` = the user-level Claude Code runtime skill directory
 
@@ -198,10 +197,11 @@ Adjacent agents must be able to answer these questions clearly:
 1. Update design if behavior/scope changes
 2. Update source agent file in `general-expert/agents/`
 3. Validate plugin-compatible loading from the same workspace when relevant
-4. Validate local marketplace install from `<marketplace-root>` when persistent local activation matters
-5. Sync source agent file to `<user-runtime-agents>/` when the deployed-copy path is still needed
-6. Validate discovery/routing
-7. Update changelog and TODO
+4. Validate repo-root local marketplace install with `claude plugins marketplace add ./ --scope local` when public local activation matters
+5. Treat the shared `darkwingtm` route only as checked local workspace-development context when it is still useful
+6. Sync source agent file to `<user-runtime-agents>/` only when the deployed-copy path is still intentionally needed
+7. Validate discovery/routing
+8. Update changelog and TODO
 
 ### 6.2 Hotfix path
 
