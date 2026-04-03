@@ -77,9 +77,9 @@ Why this exact shape matters:
 | sync to `<user-runtime-agents>/` | deployed runtime-copy path for the fleet | historical/current runtime path |
 | `claude plugins marketplace add ./ --scope local` + `claude plugins install general-expert@general-expert --scope local` | repo-root local marketplace install for the standalone repo | validated locally |
 
-### Checked local development note
+### Local development compatibility note
 
-The same fleet is also currently validated through the shared local `darkwingtm` marketplace during workspace development. That shared-marketplace route is a checked local development path, not the public default install story for this repo.
+The same fleet may still be referenced through the shared local `darkwingtm` marketplace during workspace development, but that route is no longer fleet authority. The standalone repo is now the intended source of truth, and any remaining shared-workspace usage should be treated as temporary local compatibility only.
 
 ## Source of Truth and Runtime Target
 

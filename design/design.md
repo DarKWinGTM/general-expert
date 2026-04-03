@@ -2,7 +2,7 @@
 
 > **Current Version:** 0.4.0
 > **Last Updated:** 2026-04-02
-> **Status:** Active - Local Marketplace Validation
+> **Status:** Active - Standalone Repo Authority
 > **Full history:** [../changelog/changelog.md](../changelog/changelog.md)
 
 ---
@@ -12,7 +12,7 @@
 > **Parent Scope:** TEMPLATE / PLUGIN / general-expert
 > **Design Type:** Agent Fleet Architecture + Governance
 > **Runtime Target:** `<user-runtime-agents>/` plus plugin-compatible loading from the same workspace
-> **Source of Truth:** `<workspace-root>/`
+> **Source of Truth:** `<repo-root>/`
 
 ---
 
@@ -33,7 +33,8 @@ This chain should answer:
 - what each managed agent owns
 - what each managed agent defers
 - how routing boundaries are kept clean
-- how source files are synchronized into `<user-runtime-agents>/`
+- how the standalone repo remains the governed fleet authority
+- how source files are synchronized into `<user-runtime-agents>/` only when that deployed-copy path is still intentionally needed
 - how the same governed fleet is loaded through a plugin-compatible path
 - how routing evidence is interpreted in the real runtime environment
 - how changes are tracked through README, changelog, TODO, phase, and patch artifacts
@@ -47,7 +48,7 @@ This chain should answer:
 Governed source files live in:
 
 ```text
-<workspace-root>/
+<repo-root>/
 ```
 
 ### 2.2 Runtime deployment location
@@ -64,10 +65,11 @@ The older loose-file deployment path under `<user-runtime-agents>/` is now retir
 
 ### 2.3 Authority rule
 
-- `general-expert/agents/*.md` = governed source runtime definitions
+- `<repo-root>/agents/*.md` = governed source runtime definitions
 - `<user-runtime-agents>/*.md` = deployed runtime copies only
 - `.claude-plugin/plugin.json` = plugin-compatible packaging metadata for the same governed fleet
-- design/changelog/TODO/phase/patch govern the source layer, not the deployed copy
+- design/changelog/TODO/phase/patch govern the standalone repo source layer, not the deployed copy
+- shared-workspace usage, when it still exists locally, is compatibility context only and not source authority
 
 ### 2.4 Sync rule
 

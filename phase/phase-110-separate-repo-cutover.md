@@ -17,5 +17,5 @@ Finalize `general-expert` as its own standalone GitHub repo authority without le
 - [ ] close remaining multilingual-routing and governance follow-up as needed for cutover
 - [x] create/push `DarKWinGTM/general-expert`
 - [x] validate repo-root local marketplace install from `./`
-- [ ] switch authority from shared workspace to standalone repo
-- [ ] retire shared-workspace authority cleanly
+- [x] switch authority from shared workspace to standalone repo at the documentation/source-of-truth level
+- [x] retire shared-workspace authority cleanly from public fleet posture, while leaving local compatibility usage explicitly scoped

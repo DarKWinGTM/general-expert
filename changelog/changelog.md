@@ -29,6 +29,7 @@
 ### Changed
 
 - Reworked `README.md` so the public install path now starts from the standalone repo root instead of the shared `TEMPLATE/PLUGIN` workspace path.
+- Reworked cutover/governance wording so the standalone repo is now fleet authority and shared-workspace usage is treated only as local compatibility context.
 - Replaced source-side public install examples with repo-root guidance using:
   - `claude plugins marketplace add ./ --scope local`
   - `claude plugins install general-expert@general-expert --scope local`
@@ -42,7 +43,7 @@
 
 ### Summary
 
-The fleet now teaches a portable public install story from its own repo root while preserving the shared `darkwingtm` route only as scoped local workspace context.
+The fleet now treats the standalone repo as its active authority, teaches a portable public install story from that repo root, and keeps the shared `darkwingtm` route only as scoped local compatibility context.
 
 ---
 
